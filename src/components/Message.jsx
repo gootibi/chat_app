@@ -7,6 +7,7 @@ const style = {
     received: `bg-[#e5e5ea] text-black float-left rounded-br-full`,
 };
 
+
 const Message = () => {
   return (
     <div>
