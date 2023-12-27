@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Message from './Message';
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
+import SendMessage from './SendMessage';
 
 const style = {
     main: `flex flex-col p-[10px] relative`,
@@ -19,6 +20,7 @@ const Chat = () => {
                 messages.push({ ...doc.data(), id: doc.id });
             });
             setMessages(messages);
+            console.log(messages);
         });
         return () => unsubscribe();
     }, []);
@@ -34,6 +36,7 @@ const Chat = () => {
                 
             </main>
             {/* Send Message Component */}
+            <SendMessage scroll={scroll} />
             <span ref={scroll}></span>
         </>
     );
